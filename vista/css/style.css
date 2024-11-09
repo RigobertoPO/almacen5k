@@ -1,0 +1,16 @@
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    height: 80px;
+    text-align: center;
+}
+.nav-link{
+    color: red;;
+}
+header{
+    background-color: gray;
+}
