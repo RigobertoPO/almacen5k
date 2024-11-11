@@ -28,5 +28,20 @@ class ProductosController{
         $datos=$modelproducto->obtenerProductoId($id);
         require_once('vista/productos/editar.php');
     }
+    public static function actualizar(){
+        $id=$_REQUEST['id'];
+        $nombre=$_REQUEST['nombre'];
+        $precio=$_REQUEST['precio'];
+        $existencia=$_REQUEST['existencia'];
+        $modelproducto = new ProductoModel();
+        $modelproducto->actualizarProducto($id,$nombre, $precio, $existencia, $idUsuario);
+        header("location:".urlsite."index.php?p=mostrarproductos");
+    }
+    public static function eliminar(){
+        $id=$_REQUEST['id'];
+        $modelproducto = new ProductoModel();
+        $modelproducto->eliminarProducto($id);
+        header("location:".urlsite."index.php?p=mostrarproductos");
+    }
 }
 ?>

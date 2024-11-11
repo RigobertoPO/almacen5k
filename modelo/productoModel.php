@@ -39,5 +39,31 @@ class ProductoModel{
         }
         return $this->listaProductos;
     }
+    public function actualizarProducto($id,$nombre, $precio, $existencia, $idUsuario){
+        include_once('conexion.php');
+        $cnn=new Conexion();
+        $consula="UPDATE Productos set Nombre='".$nombre.
+        "',Precio=".$precio.",Existencia=".$existencia.
+        " where Id=".$id;
+        $resultado=$cnn->prepare($consula);
+        $resultado->execute();
+        if($resultado){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function eliminarProducto($id){
+        include_once('conexion.php');
+        $cnn=new Conexion();
+        $consula="DELETE FROM Productos where Id=".$id;
+        $resultado=$cnn->prepare($consula);
+        $resultado->execute();
+        if($resultado){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 ?>
